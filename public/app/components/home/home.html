@@ -1,0 +1,27 @@
+<div id="home" ng-controller="HomeCtrl" ng-cloak>
+    <md-content class="md-padding">
+        <md-input-container flex="40" layout-align="end end" class="md-icon-float md-block">
+            <label>Search with name</label>
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+            <input ng-model="name" type="text">
+        </md-input-container>
+        <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
+            <md-grid-tile ng-repeat="battle in battles | filter : name">
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">{{battle.name}}</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                    <md-card-content>
+                        <p>Attacker Size: <strong>{{battle.attacker_size?battle.attacker_size:0}}</strong></p>
+                        <p>Defender Size: <strong>{{battle.defender_size}}</strong></p>
+                    </md-card-content>
+                    <md-card-actions layout="row" layout-align="center center">
+                        <md-button class="md-raised md-primary">More</md-button>
+                    </md-card-actions>
+                </md-card>
+            </md-grid-tile>
+        </md-grid-list>
+    </md-content>
+</div>
